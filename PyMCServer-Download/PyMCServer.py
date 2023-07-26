@@ -35,7 +35,7 @@ except:
 
 #main program
 
-installerversion = "v0.1-alpha"
+installerversion = "v0.2-alpha"
 
 from colorama import Fore, Style, Back
 import progressbar
@@ -413,7 +413,9 @@ def startmenu():
         sys.exit()
     else:
         pass
- 
+
+def serversettings():
+
 def unpack_settings():
     f = open("settings.json","r")
     return json.load(f)
