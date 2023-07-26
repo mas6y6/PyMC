@@ -35,7 +35,7 @@ except:
 
 #main program
 
-installerversion = "0.1B"
+installerversion = "v0.1-alpha"
 
 from colorama import Fore, Style, Back
 import progressbar
@@ -113,7 +113,7 @@ def question(text,options,desc="",returnitemname=False):
 
 def inputquestion(text,desc):
     run("clear")
-    print(f"{Back.WHITE}{Fore.BLACK}{text}{Fore.RESET}{Back.RESET}".center(os.get_terminal_size[1]))
+    print(f"{Back.WHITE}{Fore.BLACK}{text}{Fore.RESET}{Back.RESET}")
     print()
     print(desc)
     return input(">> ")
@@ -149,9 +149,6 @@ def menu(text,options,desc="",returnitemname=False):
     else:
         raise TypeError("returnitemname accepts Boolean values")
 
-def startmenu():
-    pass
-
 def loading():
     lu = progressbar.ProgressBar(widgets=[Fore.RESET,progressbar.AnimatedMarker()])
     while True:
@@ -161,6 +158,11 @@ def startserver():
     cmd = Popen(f"sh start.sh",shell=True,stdout=PIPE)
     output, err = cmd.communicate()
     return [output.decode(),err]
+
+def check_for_updates():
+    data = requests.get("https://api.github.com/repos/mas6y6/PyMC-Server/releases")
+    returndata = list(json.loads(data.text))
+    return returndata[len(returndata) - 1]["tag_name"]
 
 def setup():
     dirs = [item for item in os.listdir() if not item.startswith(".")]
@@ -333,15 +335,22 @@ def setup():
         lines[18] = f"gamemode={Gamemode}\n"
         lines[21] = f"hardcore={Hardcore}\n"
         lines[26] = f"level-seed={seed}\n"
+        lines[32] = f"motd={motd}\n"
         f.writelines(lines)
         f.truncate()
     ok("Success")
     ok("The server setup has been completed")
+    warning("Just to let you know if you delete the settings.json file the installer will forget all of the changes that you made\nTo continue press enter")
+    input()
+    info("Please wait writing settings.json")
+    f = open("settings.json","w")
+    json.dumps({"color":1,"directory":directory,"mcversion":minecraftserverver,"mcbuild":minecraftserverver,"installerverison":installerversion},f)
+    f.close()
+    ok("Success")
+    ok("The Setup process has been completed")
 
-
-
-
-
+def startmenu():
+    pass
 
 
 if __name__ == "__main__":
