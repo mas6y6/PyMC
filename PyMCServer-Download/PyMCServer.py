@@ -344,10 +344,18 @@ def setup():
     input()
     info("Please wait writing settings.json")
     f = open("settings.json","w")
-    json.dumps({"color":1,"directory":directory,"mcversion":minecraftserverver,"mcbuild":minecraftserverver,"installerverison":installerversion},f)
+    settingsdata = {"color":1,"directory":directory,"mcversion":minecraftserverver,"mcbuild":minecraftserverver,"installerverison":installerversion}
+    json.dump(settingsdata,f,indent=4)
     f.close()
     ok("Success")
     ok("The Setup process has been completed")
+    questionnogui("Are you sure that you want to start server now or head to main menu (Y/n)")
+    if pyinputplus.inputYesNo() == "yes":
+        info("Starting server")
+        startserver()
+    else:
+        info("Starting main menu")
+        startmenu()
 
 def startmenu():
     pass
