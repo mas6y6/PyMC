@@ -36,6 +36,8 @@ except:
 #main program
 
 installerversion = "v0.2-alpha"
+settings = None
+originaldir = os.getcwd()
 
 from colorama import Fore, Style, Back
 import progressbar
@@ -121,7 +123,7 @@ def inputquestion(text,desc=""):
 def menu(text,options,desc="",returnitemname=False):
     select = 0
     if settings["color"] == 1:
-        colord = Back.RESET
+        colord = Back.WHITE
     elif settings["color"] == 2:
         colord = Back.BLACK
     elif settings["color"] == 3:
@@ -136,8 +138,6 @@ def menu(text,options,desc="",returnitemname=False):
         colord = Back.MAGENTA
     elif settings["color"] == 8:
         colord = Back.YELLOW
-    elif settings["color"] == 9:
-        colord = Back.WHITE
     while True:
         run("clear")
         maxlen = len(options)
@@ -215,6 +215,7 @@ def setup():
         pass
     with open("settings.json","w") as f:
         f.close()
+    settingsfile = f"{os.getcwd()}/settings.json"
     ok("Success")
     time.sleep(0.5)
     servername = inputquestion("What the name of your NEW minecraft server")
@@ -338,9 +339,9 @@ def setup():
     ok("Success")
     q = question("Gamemode",["Survial","Creative"],returnitemname=True)
     if q == "Survial":
-        Gamemode = "normal"
+        Gamemode = "survial"
     elif q == "Creative":
-        Gamemode = "easy"
+        Gamemode = "creative"
     else:
         pass
     q = question("Difficulty",["Normal","Easy","Hard","Hardcore"],returnitemname=True)
@@ -384,7 +385,7 @@ def setup():
     warning("Just to let you know if you delete the settings.json file the installer will forget all of the changes that you made\nTo continue press enter")
     input()
     info("Please wait writing settings.json")
-    f = open("settings.json","w")
+    f = open(settingsfile,"w")
     settingsdata = {"servername":servername,"color":1,"directory":directory}
     json.dump(settingsdata,f,indent=4)
     f.close()
@@ -399,30 +400,46 @@ def setup():
         info("Starting main menu...")
         startmenu()
 
-def finderrors():
+#main menu
+def finderrors(error):
     pass
 
 def startmenu():
-    d = menu(settings["servername"],desc="Use arrow keys to navagate",["Start Server","Server settings","Installer settings","exit"])
-    if d == 1:
+    os.chdir(originaldir)
+    unpack_settings()
+    d = menu("Main menu",["Start Server","Server settings","Installer settings","Exit"],desc="Use arrow keys to navagate")
+    if d == 0:
         output = startserver()
         finderrors(output)
-    elif d == 2:
+    elif d == 1:
         serversettings()
+    elif d == 2:
+        installerserversettings()
     elif d == 3:
         sys.exit()
     else:
         pass
 
 def serversettings():
+    menu("",["World settings","Server network"])
+
+def installerserversettings():
+    menu("")
 
 def unpack_settings():
+    global settings
     f = open("settings.json","r")
-    return json.load(f)
+    settings = json.load(f)
+    f.close()
 
 def update_settings():
-    f = open("")
+    global settings
+    f = open("settings","w")
+    json.dump(settings,f)
+    f.close()
 
+
+#Startup
 if __name__ == "__main__":
     info("This Minecraft server installer is made my @mas6y6 on github")
     time.sleep(0.5)
@@ -442,7 +459,6 @@ if __name__ == "__main__":
                 sys.exit()
         else:
             info("Unpacking settings.json")
-            settings = unpack_settings()
             startmenu()
             
     else:
