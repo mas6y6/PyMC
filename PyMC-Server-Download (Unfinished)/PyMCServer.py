@@ -424,7 +424,7 @@ def serversettings():
     menu("",["World settings","Server network"])
 
 def installerserversettings():
-    menu("")
+    menu("",[])
 
 def unpack_settings():
     global settings
