@@ -7,15 +7,42 @@ then the manual way
 
 ![PyMC-Server](https://github.com/mas6y6/PyMC-Server/assets/125225333/f176d3ea-7327-4dec-8012-50fcf5d0042b)
 
-# How to run
-Its very simple just download the `PyMC-Server.py file` located in `PyMC-Server-Download` folder and run this one command and you get into the setup process
+# Download
 
-```
-python3 PyMC-Server.py
-```
+## MacOS (Beta)
 
-# Important!!
-Please don't delete the `settings.json` file or the PyMC-Server will forget that you made a server, where it is and it will break the installer
+
+
+## Windows
+For Windows is coming soon but for now just download `PyMC-Server(Unpackaged).zip` located in PyMC-Server
+it will work just the same just as the app version its just that is not executable app
+
+**Run this command to install the packages that are needed to run PyMC-Server**
+```
+pip install -r requirements.txt
+```
+**Python Required**
+
+
+## Linux (Debian, Raspberry Pi OS, etc...)
+For Linux is in works but for right now download `PyMC-Server(Unpackaged).zip` its will work the same is just that is not executable app
+
+**Run this command to install the packages that are needed to run PyMC-Server**
+```
+pip install -r requirements.txt
+```
+**Python Required**
+
+## Unpackaged version
+This version of PyMC-Server is not in a executable app
+instead this version is compiled into a zip file which contains `main.py` , `requirements.txt` and `Assets`
+
+**Before running the `main.py` file please run this command**
+```
+pip install -r requirements.txt
+```
+To install all of the packages required to run `main.py`
+
 
 # Features
 1. This installer has a setup system that guides you through the setup process instead of manually setting up the minecraft server
@@ -37,15 +64,13 @@ and more...
 
 # Python PyPi Packages used for the installer
 
-1. Requests
+1. requests
 
-2. Progressbar 2
+2. urllib
 
-3. Getkey
+3. ttkbootstrap
 
-4. Pyinputplus
-
-5. Urllib
+4. tkinter
 
 More packages may be used for later versions
 
