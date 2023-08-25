@@ -12,12 +12,14 @@ import urllib.request
 from subprocess import *
 from threading import Thread
 import time
+import git
 
 home_directory = os.path.expanduser('~')
 server_directory = None
 progressbar = None
 run_server_dir = None
 server_settings = None
+done = None
 def download(url,tofile):
     urllib.request.urlretrieve(url,tofile,showloading)
     urllib.request.urlcleanup()
@@ -56,6 +58,8 @@ if os.path.exists("PyMC-Server_content"):
         _setupdirectory(exists=True)
 else:
     _setupdirectory()
+
+import editer
 
 mainframe = None
 newserver = {}
@@ -174,12 +178,13 @@ def add_server3(val):
 
 def _change_directory(val,l2):
     val.set(askdirectory())
+    print(val.get())
     l2.config(text=val.get())
 
 def add_server4(val):
     global newserver
     if val == "None":
-        showerror("PyMC-Server","Please pick a option")
+        showerror("PyMC-Server","Please select a difficulty")
         return
     newserver["difficulty"] = val
     global mainframe
@@ -203,7 +208,7 @@ def add_server4(val):
 
 def add_server5(val):
     global newserver
-    if val == "None":
+    if val == "None" or val=="" or val==None:
         showerror("PyMC-Server","Please select a directory")
         return
     
@@ -326,8 +331,22 @@ def add_server7(val,val2):
     b2.pack(side="left",pady=9,padx=3)
     mainframe.pack()
 
-def run_server(mem="1024M"):
-    run = Popen(f"java -Xms{mem} -Xmx{mem} -jar paper.jar",cwd=run_server_dir,shell=True)
+def run_server(mem="1024M",sp=False,userun=False):
+    global Done
+    Done = True
+    if userun:
+        if sp == False:
+            run("sh start.sh",cwd=run_server_dir,shell=True,)
+        else:
+            run("sh start.sh&",cwd=run_server_dir,shell=True)
+        rund = None
+    else:
+        if sp == False:
+            rund = Popen("nohup sh start.sh",cwd=run_server_dir,shell=True)
+        else:
+            rund = Popen("nohup sh start.sh&",cwd=run_server_dir,shell=True)
+    Done = False
+    return rund
 
 def install():
     global mainframe, newserver, progressbar
@@ -358,7 +377,7 @@ def install2():
     e1 = ttk.Entry(master=mainframe)
     e1.pack()
     e1.insert(0,"1024M")
-    b1 = ttk.Button(text="Next",command=lambda: install2(e1.get()),state="disabled")
+    b1 = ttk.Button(master=mainframe,text="Next",command=lambda: install3(e1.get()))
     b1.pack(pady=4)
     mainframe.pack()
 
@@ -376,19 +395,33 @@ def install3(value):
     l1.pack()
     l2 = ttk.Label(master=mainframe,text="Creating Startup File...",font=("",15))
     l2.pack(pady=15)
-    progressbar = ttk.Progressbar(master=mainframe,length=450,bootstyle="primary",mode="determinate")
+    progressbar = ttk.Progressbar(master=mainframe,length=450,bootstyle="primary",mode="indeterminate")
     progressbar.pack(pady=20)
+    b1 = ttk.Button(master=mainframe,text="Next",command=install4,state="disabled")
+    b1.pack()
     mainframe.pack()
+    progressbar.start()
     dir = newserver["dir"]
+    mem = newserver["mem"]
     os.chdir(dir)
     with open("start.sh","w") as f:
-        f.write("")
+        f.write(f"java -Xmx{mem} -Xms{mem} -jar paper.jar")
         f.close()
-    print("Setup")
-    l2.config(text="Complete")
-    b1 = ttk.Button(master=mainframe,text="Next",command=install2)
-    b1.pack()
-    
+    l2.config(text="Unpacking server...")
+    Thread(target=lambda: run_server(sp=False,userun=True)).start()
+    time.sleep(0.1)
+    while Done:
+        mainframe.update()
+    progressbar.stop()
+    progressbar["value"] = 0
+    b1.config(state="enabled")
+    l2.config(text="Done")
+
+def install4():
+    global mainframe
+    mainframe.destroy()
+    mainframe = ttk.Frame(master=root)
+    mainframe
 
 def goto(page):
     global mainframe

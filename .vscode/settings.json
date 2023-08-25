@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./Assets",
+        "./PyMC-Server(bare)/Assets"
+    ]
+}

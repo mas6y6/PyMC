@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 ## Unpackaged version
 This version of PyMC-Server is not in a executable app
-instead this version is compiled into a zip file which contains `main.py` , `requirements.txt` and `Assets`
+instead this version is compiled into a zip file which contains `main.py`
 
 **Before running the `main.py` file please run this command**
 ```
