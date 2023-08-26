@@ -3,3 +3,4 @@ build/
 dist/
 PyMC-Server(bare)/
 PyMC-Server.spec
+.DS_Store

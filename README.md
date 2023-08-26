@@ -10,11 +10,12 @@ then the manual way
 # Download
 
 ## MacOS (Beta)
-
+This version will be located within the `MacOS` folder the dmg file will contain a `.dmg` file.
+open it and you will see the app and place the app in Applications folder on your mac then eject
 
 
 ## Windows
-For Windows is coming soon but for now just download `PyMC-Server(Unpackaged).zip` located in PyMC-Server
+For Windows is coming soon but for now just download `PyMC-Server(Unpackaged).zip` located in `Unpackaged`
 it will work just the same just as the app version its just that is not executable app
 
 **Run this command to install the packages that are needed to run PyMC-Server**
