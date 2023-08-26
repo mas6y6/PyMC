@@ -15,7 +15,7 @@ open it and you will see the app and place the app in Applications folder on you
 
 
 ## Windows
-For Windows is coming soon but for now just download `PyMC-Server(Unpackaged).zip` located in `Unpackaged`
+For Windows is coming soon but for now just download [Unpackaged](https://github.com/mas6y6/PyMC-Server#unpackaged-version) located in `Unpackaged`
 it will work just the same just as the app version its just that is not executable app
 
 **Run this command to install the packages that are needed to run PyMC-Server**
@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 
 ## Linux (Debian, Raspberry Pi OS, etc...)
-For Linux is in works but for right now download `PyMC-Server(Unpackaged).zip` its will work the same is just that is not executable app
+For Linux is in works but for right now download [Unpackaged](https://github.com/mas6y6/PyMC-Server#unpackaged-version) its will work the same is just that is not executable app
 
 **Run this command to install the packages that are needed to run PyMC-Server**
 ```
