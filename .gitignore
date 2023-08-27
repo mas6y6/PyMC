@@ -6,3 +6,4 @@ PyMC-Server.spec
 .DS_Store
 test.py
 icon.png
+start.sh
