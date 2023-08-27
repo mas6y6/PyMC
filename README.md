@@ -8,35 +8,7 @@ then the manual way
 ![PyMC-Server](https://github.com/mas6y6/PyMC-Server/assets/125225333/f176d3ea-7327-4dec-8012-50fcf5d0042b)
 
 # Download
-
-## MacOS (Beta)
-This version will be located within the `MacOS` folder the dmg file will contain a `.dmg` file.
-open it and you will see the app and place the app in Applications folder on your mac then eject
-
-
-## Windows
-For Windows is coming soon but for now just download [Unpackaged](https://github.com/mas6y6/PyMC-Server#unpackaged-version) located in `Unpackaged`
-it will work just the same just as the app version its just that is not executable app
-
-**Run this command to install the packages that are needed to run PyMC-Server**
-```
-pip install -r requirements.txt
-```
-**Python Required**
-
-
-## Linux (Debian, Raspberry Pi OS, etc...)
-For Linux is in works but for right now download [Unpackaged](https://github.com/mas6y6/PyMC-Server#unpackaged-version) its will work the same is just that is not executable app
-
-**Run this command to install the packages that are needed to run PyMC-Server**
-```
-pip install -r requirements.txt
-```
-**Python Required**
-
-## Unpackaged version
-This version of PyMC-Server is not in a executable app
-instead this version is compiled into a zip file which contains `main.py`
+Download `PyMC-Server.zip` from the `PyMC-Server.zip` folder or just use
 
 **Before running the `main.py` file please run this command**
 ```
