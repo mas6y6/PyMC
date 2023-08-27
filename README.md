@@ -8,7 +8,7 @@ then the manual way
 ![PyMC-Server](https://github.com/mas6y6/PyMC-Server/assets/125225333/f176d3ea-7327-4dec-8012-50fcf5d0042b)
 
 # Download
-Download `PyMC-Server.zip` from the `PyMC-Server.zip` folder or just use
+Download `PyMC-Server.zip` from the `PyMC-Server.zip` folder or just ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/PyMC-Server/PyMC-Server.zip) to download it
 
 **Before running the `main.py` file please run this command**
 ```
