@@ -4,3 +4,6 @@ main.py
 .DS_Store
 createapp.sh
 start.sh
+PyMC-Server.spec
+dist
+build
