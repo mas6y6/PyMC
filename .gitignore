@@ -8,12 +8,7 @@ test.py
 icon.png
 start.sh
 main.py
-.gitignore
 Assets/editer.py
-.gitignore
 Assets/windows.py
-.gitignore
-Assets/__pycache__/editer.cpython-311.pyc
-Assets/__pycache__/windows.cpython-311.pyc
 requirements.txt
 Assets
