@@ -5,5 +5,4 @@ main.py
 createapp.sh
 start.sh
 PyMC-Server.spec
-dist
 build
