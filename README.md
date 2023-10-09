@@ -10,13 +10,13 @@ then the manual way
 # Download
 
 ## macOS
-Download `PyMC-Server.dmg` from the `dist` folder or ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.dmg) to download it
+Download `PyMC-Server.dmg` from the `dist` folder or [Click me](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.dmg) to download it
 
 ## Linux and Ubuntu
-Download `PyMC-Server.zip` from the `dist` folder or ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.zip) to download it
+Download `PyMC-Server.zip` from the `dist` folder or [Click me](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.zip) to download it
 
 ## Windows
-Support for windows is coming soon because of executable issues. For now you can download the `PyMC-Server.zip` file located in the `dist` folder or ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.zip) to download it
+Support for windows is coming soon because of executable issues. For now you can download the `PyMC-Server.zip` file located in the `dist` folder or [Click me](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.zip) to download it
 
 
 # Features
