@@ -8,13 +8,15 @@ then the manual way
 ![PyMC-Server](https://github.com/mas6y6/PyMC-Server/assets/125225333/f176d3ea-7327-4dec-8012-50fcf5d0042b)
 
 # Download
-Download `PyMC-Server.zip` from the `PyMC-Server.zip` folder or just ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.zip) to download it
 
-**Before running the `main.py` file please run this command**
-```
-pip install -r requirements.txt
-```
-To install all of the packages required to run `main.py`
+## macOS
+Download `PyMC-Server.dmg` from the `dist` folder or ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.dmg) to download it
+
+## Linux and Ubuntu
+Download `PyMC-Server.zip` from the `dist` folder or ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.zip) to download it
+
+## Windows
+Support for windows is coming soon because of executable issues. For now you can download the `PyMC-Server.zip` file located in the `dist` folder or ['Click me'](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.zip) to download it
 
 
 # Features
