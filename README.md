@@ -9,6 +9,8 @@ then the manual way
 
 # Download
 
+This project is in the works. Not all features are implemented.
+
 ## macOS
 Download `PyMC-Server.dmg` from the `dist` folder or [Click me](https://github.com/mas6y6/PyMC-Server/raw/main/dist/PyMC-Server.dmg) to download it
 
